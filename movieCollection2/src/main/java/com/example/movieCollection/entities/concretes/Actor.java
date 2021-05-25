@@ -22,6 +22,12 @@ public class Actor {
 	public Actor() {
 		
 	}
+	
+	public Actor(int actorId, String actorName) {
+		super();
+		this.actorId = actorId;
+		this.actorName = actorName;
+	}
 
 	public int getActorId() {
 		return actorId;
@@ -36,12 +42,6 @@ public class Actor {
 	}
 
 	public void setActorName(String actorName) {
-		this.actorName = actorName;
-	}
-
-	public Actor(int actorId, String actorName) {
-		super();
-		this.actorId = actorId;
 		this.actorName = actorName;
 	}
 	
