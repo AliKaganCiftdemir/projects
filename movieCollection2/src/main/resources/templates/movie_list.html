@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Sorting Movie List</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container bg-dark text-white">
+	<h1>List Of Sort Movies</h1>
+		<table class="table table-dark table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Genre</th>
+					<th>Year</th>
+					<th>Language</th>
+					<th>Media</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="movie : ${listMovies}">
+					<td th:text="${movie.movieName}"></td>
+					<td th:text="${movie.movieDescription}"></td>
+					<td th:text="${movie.movieGenre}"></td>
+					<td th:text="${movie.movieYearOfPublication}"></td>
+					<td th:text="${movie.movieLanguage}"></td>
+					<td th:text="${movie.movieMedia}"></td>
+					<td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/}" class="btn btn-info col-2">Back To Movie List</a>
+		<br/>
+		<br/>
+	</div>
+</body>
+</html>

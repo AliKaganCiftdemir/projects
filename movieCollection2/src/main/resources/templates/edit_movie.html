@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Movie Management System</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+					   integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+					   crossorigin="anonymous">
+</head>
+<body>
+<div class="container bg-dark text-white">
+		<h1>Edit Movie</h1>
+		<form action="#" th:action="@{/saveMovie}" th:object="${movie}" method="POST" >
+			<input type="text" th:field="*{movieId}" readonly="readonly"
+			class="form-control mb-4 col-6">
+			<input type="text" th:field="*{movieName}" 
+			class="form-control mb-4 col-6" required>
+			<input type="text" th:field="*{movieDescription}"
+			class="form-control mb-4 col-6">
+			<input type="text" th:field="*{movieGenre}"
+			class="form-control mb-4 col-6" required>
+			<input type="text" th:field="*{movieYearOfPublication}"
+			class="form-control mb-4 col-6" required>
+			<input type="text" th:field="*{movieLanguage}"
+			class="form-control mb-4 col-6" required>
+			<input type="text" th:field="*{movieMedia}"
+			class="form-control mb-4 col-6">
+			<button type="submit" class="btn btn-info col-6">Edit Movie</button>
+		</form>
+		<br/>
+		<a th:href="@{/}" class="btn btn-info col-6">Back To Movie List</a>
+		<br/>
+		<br/>
+	</div>
+</body>
+</html>
