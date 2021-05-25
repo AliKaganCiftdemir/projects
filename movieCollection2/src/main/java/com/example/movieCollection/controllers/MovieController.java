@@ -22,7 +22,7 @@ public class MovieController {
 	@GetMapping("/")
 	public String viewHomePage(Model model) {
 		List<Movie> list = movieService.getAllMovies();
-		System.out.println(list);
+		//System.out.println(list);
 		model.addAttribute("listMovies", list);
 		return "index";
 	}
