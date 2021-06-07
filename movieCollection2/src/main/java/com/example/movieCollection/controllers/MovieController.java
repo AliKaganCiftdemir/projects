@@ -20,9 +20,11 @@ public class MovieController {
 	private MovieService movieService;
 	
 	@GetMapping("/")
-	public String viewHomePage(Model model) {
+	public String viewHomePage(@ModelAttribute("actorName") String actorName, Model model) {
 		List<Movie> list = movieService.getAllMovies();
-		//System.out.println(list);
+		for (Movie movie : list) {
+			System.out.println(movie);
+		}
 		model.addAttribute("listMovies", list);
 		return "index";
 	}

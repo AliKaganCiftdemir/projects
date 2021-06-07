@@ -1,12 +1,12 @@
 package com.example.movieCollection.entities.concretes;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +14,6 @@ import javax.persistence.Table;
 public class Movie {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "movie_id")
 	private int movieId;
 	
@@ -36,12 +35,15 @@ public class Movie {
 	@Column(name = "movie_media")
 	private String movieMedia;
 	
+	@OneToMany(mappedBy = "movie")
+	private List<Actor> actors;
+	
 	public Movie() {
 		
 	}
 
 	public Movie(int movieId, String movieName, String movieDescription, String movieGenre,
-			Date movieYearOfPublication, String movieLanguage, String movieMedia) {
+			Date movieYearOfPublication, String movieLanguage, String movieMedia, List<Actor> actors) {
 		this.movieId = movieId;
 		this.movieName = movieName;
 		this.movieDescription = movieDescription;
@@ -49,6 +51,7 @@ public class Movie {
 		this.movieYearOfPublication = movieYearOfPublication;
 		this.movieLanguage = movieLanguage;
 		this.movieMedia = movieMedia;
+		this.actors = actors;
 	}
 
 	public int getMovieId() {
@@ -107,10 +110,19 @@ public class Movie {
 		this.movieMedia = movieMedia;
 	}
 
-	@Override
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+
+	/*@Override
 	public String toString() {
 		return "Movie [movieId=" + movieId + ", movieName=" + movieName + ", movieDescription=" + movieDescription
 				+ ", movieGenre=" + movieGenre + ", movieYearOfPublication=" + movieYearOfPublication
-				+ ", movieLanguage=" + movieLanguage + ", movieMedia=" + movieMedia + "]";
+				+ ", movieLanguage=" + movieLanguage + ", movieMedia=" + movieMedia + ", actors=" + actors + "]";
 	}
+*/
 }

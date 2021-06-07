@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,14 +21,19 @@ public class Actor {
 	@Column(name = "actor_name")
 	private String actorName;
 	
+	@ManyToOne
+	@JoinColumn(name = "movie_id", nullable = false)
+	private Movie movie;
+	
 	public Actor() {
 		
 	}
 	
-	public Actor(int actorId, String actorName) {
+	public Actor(int actorId, String actorName, Movie movie) {
 		super();
 		this.actorId = actorId;
 		this.actorName = actorName;
+		this.movie = movie;
 	}
 
 	public int getActorId() {
@@ -45,9 +52,17 @@ public class Actor {
 		this.actorName = actorName;
 	}
 	
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
 	@Override
 	public String toString() {
-		return "Actor [actorId=" + actorId + ", actorName=" + actorName + "]";
+		return "Actor [actorId=" + actorId + ", actorName=" + actorName + ", movie=" + movie + "]";
 	}
 
 }

@@ -17,5 +17,5 @@ public interface MovieDao extends JpaRepository<Movie, Integer> {
 	
 	@Query(value="SELECT * FROM movies m ORDER BY m.movie_year_of_publication ASC", nativeQuery=true)
 	List<Movie> getOrderedMovies();
-	
+
 }

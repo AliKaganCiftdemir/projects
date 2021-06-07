@@ -14,7 +14,7 @@ public class MovieManager implements MovieService{
 
 	@Autowired
 	private MovieDao movieDao;
-
+	
 	@Override
 	public void saveMovie(Movie movie) {
 		movieDao.save(movie);
@@ -44,4 +44,10 @@ public class MovieManager implements MovieService{
 	public List<Movie> getAllOrderedMovies() {
 		return movieDao.getOrderedMovies();
 	}
+
+	/*@Override
+	public List<Actor> getAllActors(String actorName) {
+		return movieDao.getByActorName(actorName);
+	}
+*/
 }
